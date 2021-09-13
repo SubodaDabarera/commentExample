@@ -15,7 +15,7 @@ function DetailProductCard({product}){
                         <Rating props = {product}/>
                     </div>
                 
-                    <span> ${product.price}</span>
+                    <span> Rs. {product.price}</span>
                 
                     <p>{product.description}</p>
                     

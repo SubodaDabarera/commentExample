@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+//-------------4-------------
+
 const productSchema = new mongoose.Schema({
     title: String,
     price: Number,

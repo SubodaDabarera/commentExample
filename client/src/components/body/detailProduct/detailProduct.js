@@ -20,6 +20,8 @@ function DetailProduct(){
     const [comments, setComments] = useState([])
     const [loading, setLoading] = useState(false)
 
+
+
     useEffect(() => {
         setDetailProduct(products.filter(product => product._id === id) )
        
@@ -54,6 +56,8 @@ function DetailProduct(){
         }
     },[socket, comments])
 
+  
+
     //end realtime
 
     //Reply comments with realtime
@@ -73,6 +77,8 @@ function DetailProduct(){
             return () => socket.off('sendReplyCommentToClient')
         }
     },[socket, comments])
+
+   
 
     return (
         <div className = "detail_product_page"> 

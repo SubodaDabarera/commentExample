@@ -4,8 +4,10 @@ import moment from 'moment'
 import './CommentCard.css'
 
 function CommentCard({children, comment}){
+
     return (
         <div className = "comment_card">
+            
             <div className = "comment_card_row">
                 <h3>{comment.username}</h3>
                 {
@@ -19,6 +21,7 @@ function CommentCard({children, comment}){
             <p dangerouslySetInnerHTML={{__html: comment.content}}/>
 
             {children}
+            
 
         </div>
     )

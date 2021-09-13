@@ -1,6 +1,8 @@
 const Products =  require('../models/productModel')
 
 // ###################################### 2nd ###################################
+
+//------------------3------------------
 const productCtrl = {
     getProducts: async(req, res) => {
         try{
@@ -29,7 +31,7 @@ const productCtrl = {
                 })
 
             
-                res.json({msg : 'Update success'})
+                res.json({msg : 'Update success', rate, num})
             }
 
             

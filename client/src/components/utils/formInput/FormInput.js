@@ -66,7 +66,7 @@ function FormInput({id, socket, rating, setReply, send, name}){
                 }}
            />
 
-           <button onClick={commentSubmit} >Post</button>
+           <button style = {{borderRadius: "10px"}} onClick={commentSubmit} >Post</button>
 
         </div>
     )

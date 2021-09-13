@@ -10,4 +10,11 @@ export const patchData = async (url, data) => {
     return res;
 }
 
+export const deleteComment = async(url) => {
 
+    await axios.delete(url)
+}
+
+export const deleteReply = async(url, data) => {
+    const res = await axios.put(url )
+}

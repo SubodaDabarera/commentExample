@@ -14,6 +14,7 @@ app.use(cors())
 const http =  require('http').createServer(app)
 const io = require('socket.io')(http)
 
+
 //sockets
 let users = []
 io.on('connection', socket => {
@@ -50,7 +51,11 @@ io.on('connection', socket => {
         const {username, content, product_id, createdAt, rating, send} = msg
 
         const newComment = new Comments({
-            username, content, product_id, createdAt, rating
+            username, 
+            content,
+            product_id,
+            createdAt,
+            rating
         })
 
         if(send === 'replyComment'){
@@ -78,10 +83,10 @@ io.on('connection', socket => {
 })
 
 //Routes
-app.use('/api', require('./routes/productRoute'))
+app.use('/api', require('./routes/productRoute'))   //----------------1-----------
 app.use('/api', require('./routes/commentRoute'))
 
-//Connection to mongoDB
+//Connect to mongoDB
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
     useCreateIndex: true,
