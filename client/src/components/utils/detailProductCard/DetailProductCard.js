@@ -3,6 +3,8 @@ import './DetailProductCard.css'
 import Rating from '../rating/Rating'
 
 function DetailProductCard({product}){
+
+
     return (
         <div>
             <div className = "detail_product_card">
@@ -17,11 +19,11 @@ function DetailProductCard({product}){
                 
                     <span> Rs. {product.price}</span>
                 
-                    <p>{product.description}</p>
+                    <p> {product.description} </p>
                     
-                    
-                    <button style = {{backgroundColor: '#56C495', margin: '10px' }} >Buy</button>
-                    <button style = {{backgroundColor: '#EACF36', margin: '10px' }} >Add to cart</button>
+        
+                    <button style = {{backgroundColor: '#56C495', margin: '10px', borderRadius: "10px", border: "none", cursor: "pointer" }}> <i class="far fa-money-bill-alt"></i> {' '} Buy</button>
+                    <button style = {{backgroundColor: '#EACF36', margin: '10px', borderRadius: "10px", border: "none", cursor: "pointer"  }} ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>  {' '}Add to cart</button>
                     
 
                 </div>

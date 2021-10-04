@@ -89,6 +89,31 @@ const commentCtrl = {
             res.status(500).send({status: "Unsuccess"})
         }
 
+    },
+
+
+    //update is not working
+    UpdataReply: async(req, res) => {
+        try{
+            
+            let commentId = req.params.id;
+            let reply = req.body.reply;
+            reply[0].content = reply;
+
+            testReply = reply[0].content;
+
+            // const formatReply = inp
+
+            // const updateReply = { 
+            //     reply[0].content,
+            // }
+
+            const update = await Comments.findByIdAndUpdate(commentId, reply[0].content)
+            res.status(200).send({status: "Reply updated!", value: testReply})
+
+        }catch(err){
+            res.status(500).send({status: "Update unsuccess", error: err.message})
+        }
     }
 
 

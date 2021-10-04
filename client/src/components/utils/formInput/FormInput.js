@@ -2,31 +2,38 @@ import React, {useRef, useEffect} from 'react'
 import './FormInput.css'
 import {patchData} from '../../utils/FetchData'
 
-function FormInput({id, socket, rating, setReply, send, name}){
+function FormInput({id, socket, rating, setReply, send, name, update, setEditReply}){
     const nameRef = useRef()
     const contentRef = useRef()
-
+    
+    
     useEffect(() => {
-        if(name){
-
+        if(name && update){
             contentRef.current.innerHTML = `
             <a href="#!"
                 style="color: crimson;
                 font-weight: 600;
                 text-transform: capitalize;"
-            >${name}: </a>
-        `
-            //contentRef.current.innerHTML = '<a href="#!" style="color:crimson; font-weight: 600; text-transform :capitalize;">${name}<a/>' 
-        
+            > ${update}</a> `
+            
         }
-    }, [name])
+        else if(name){
+            contentRef.current.innerHTML = `
+            <a href="#!"
+                style="color: crimson;
+                font-weight: 600;
+                text-transform: capitalize;"
+            >${name}: </a> `
+        }
+    }, [name, update])
 
 
     const commentSubmit = () => {
-        const username = nameRef.current.value
+        const username = localStorage.getItem("userInfo").replaceAll('"', '')
+        // nameRef.current.value
         const content = contentRef.current.innerHTML
 
-        if(!username.trim()) return alert('Name cannot be empty!!!')
+        // if(!username.trim()) return alert('Name cannot be empty!!!')
         if(contentRef.current.textContent.trim().length < 20)
             return alert('Contents too short, must be at least 20 characters')
 
@@ -45,14 +52,16 @@ function FormInput({id, socket, rating, setReply, send, name}){
         contentRef.current.innerHTML = ''
 
         if(setReply) setReply(false)
+        if(setEditReply) setEditReply(false)
+
 
     }
 
 
     return(
         <div className = "form_input">
-           <p> Name</p>
-           <input type = "text" ref = {nameRef} />
+           {/* <p> Name</p>
+           <input type = "text" ref = {nameRef} /> */}
 
            <p> Content</p>
            <div ref = {contentRef}

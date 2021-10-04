@@ -6,7 +6,8 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     padding: 5px 10px;
-    min-height: 40px;
+    /* min-height: 40px; */
+    height: 10;
     outline: none;
 }
 .form_input button{

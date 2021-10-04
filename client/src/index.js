@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {DataProvider} from './GlobalState'
 
+
+
 ReactDOM.render(
   <React.StrictMode>
     <DataProvider>
-      <App />
+       <App />
     </DataProvider>
   </React.StrictMode>,
   document.getElementById('root')

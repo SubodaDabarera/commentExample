@@ -18,3 +18,15 @@ export const deleteComment = async(url) => {
 export const deleteReply = async(url, data) => {
     const res = await axios.put(url )
 }
+
+
+//sign in
+export const singIn = async(url, data) => {
+    
+    // console.log(data.email) 
+    // console.log(data.password)
+    // console.log(url)
+
+    const res = await axios.post(url, data)
+    return res;
+}

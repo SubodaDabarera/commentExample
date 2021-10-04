@@ -4,6 +4,7 @@ import moment from 'moment'
 import './CommentCard.css'
 
 function CommentCard({children, comment}){
+    // console.log(comment.content)
 
     return (
         <div className = "comment_card">

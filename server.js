@@ -14,7 +14,6 @@ app.use(cors())
 const http =  require('http').createServer(app)
 const io = require('socket.io')(http)
 
-
 //sockets
 let users = []
 io.on('connection', socket => {
@@ -85,6 +84,7 @@ io.on('connection', socket => {
 //Routes
 app.use('/api', require('./routes/productRoute'))   //----------------1-----------
 app.use('/api', require('./routes/commentRoute'))
+app.use('/api', require('./routes/userRoute'))
 
 //Connect to mongoDB
 const URI = process.env.MONGODB_URL
